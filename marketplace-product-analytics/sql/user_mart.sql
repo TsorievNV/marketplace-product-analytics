@@ -37,7 +37,6 @@ SELECT a.*, o.contacted, o.complained,
        SUM(o.contacted) OVER (PARTITION BY a.variant ORDER BY a.assigned_at, a.user_id
            ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS cumulative_contacts
 FROM assignments a JOIN outcomes o ON a.user_id = o.user_id
--- GROUP BY позволяет SQLite использовать индексы для промежуточных агрегатов.
 -- Накопительный итог отмечает первое достижение шага воронки.
 LEFT JOIN (SELECT user_id FROM searches GROUP BY user_id) s ON a.user_id = s.user_id
 LEFT JOIN (SELECT user_id FROM views GROUP BY user_id) v ON a.user_id = v.user_id
