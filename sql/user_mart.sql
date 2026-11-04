@@ -1,4 +1,4 @@
--- Запрос выполняется на SQLite 3. Используются стандартные конструкции SQL.
+-- Пользовательская витрина эксперимента на SQLite 3.
 -- Входные события предварительно проверены и очищены от дублей.
 -- Знаменатель основной метрики включает всех назначенных пользователей.
 WITH searches AS (
@@ -38,7 +38,7 @@ SELECT a.*, o.contacted, o.complained,
            ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS cumulative_contacts
 FROM assignments a JOIN outcomes o ON a.user_id = o.user_id
 -- GROUP BY позволяет SQLite использовать индексы для промежуточных агрегатов.
--- Подзапросы с DISTINCT приводили к вложенным сканированиям в проверенном плане.
+-- Накопительный итог отмечает первое достижение шага воронки.
 LEFT JOIN (SELECT user_id FROM searches GROUP BY user_id) s ON a.user_id = s.user_id
 LEFT JOIN (SELECT user_id FROM views GROUP BY user_id) v ON a.user_id = v.user_id
 LEFT JOIN ordered_contacts c ON a.user_id = c.user_id;
