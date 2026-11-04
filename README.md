@@ -11,7 +11,7 @@
 Генератор задаёт положительный эффект изменения. Анализ показывает, достаточно ли
 роста основной метрики для запуска с учётом ограничения по жалобам.
 
-![Воронка и доверительный интервал](reports/overview.png)
+![Воронка и доверительный интервал](marketplace-product-analytics/reports/overview.png)
 
 ## Результат выполненного запуска
 
@@ -37,11 +37,11 @@
 
 ## Что посмотреть за две минуты
 
-1. [Решение и ограничения](reports/decision.md) — эффект, доверительный интервал и ограничение по жалобам.
-2. [Выполненный ноутбук](notebooks/analysis.ipynb) — расчёты и графики.
-3. [SQL-витрина](sql/user_mart.sql) — CTE, JOIN, оконная функция, защита знаменателя.
-4. [Дашборд](reports/dashboard.html) — скачать и открыть в браузере; фильтры по устройству и категории.
-5. [План эксперимента](experiment_plan.json) и [контракт событий](docs/data_contract.md).
+1. [Решение и ограничения](marketplace-product-analytics/reports/decision.md) — эффект, доверительный интервал и ограничение по жалобам.
+2. [Выполненный ноутбук](marketplace-product-analytics/notebooks/analysis.ipynb) — расчёты и графики.
+3. [SQL-витрина](marketplace-product-analytics/sql/user_mart.sql) — CTE, JOIN, оконная функция, защита знаменателя.
+4. [Дашборд](marketplace-product-analytics/reports/dashboard.html) — скачать и открыть в браузере; фильтры по устройству и категории.
+5. [План эксперимента](marketplace-product-analytics/experiment_plan.json) и [контракт событий](marketplace-product-analytics/docs/data_contract.md).
 
 ## Воспроизведение
 
@@ -128,6 +128,8 @@ GitHub Actions запускает тесты и повторяет анализ 
 для жалоб. Для хранения событий и построения SQL-витрины используется SQLite.
 
 ## Структура
+
+Пути в таблице указаны относительно папки `marketplace-product-analytics/`.
 
 | Путь | Назначение |
 |---|---|
