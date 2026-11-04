@@ -1,0 +1,48 @@
+name: Публикация дашборда
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - marketplace-product-analytics/reports/dashboard.html
+      - marketplace-product-analytics/scripts/build_pages.py
+      - .github/workflows/pages.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Загрузка исходного кода
+        uses: actions/checkout@v6
+      - name: Подготовка Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Сборка страницы
+        run: python marketplace-product-analytics/scripts/build_pages.py
+      - name: Загрузка страницы
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Публикация страницы
+        id: deployment
+        uses: actions/deploy-pages@v4

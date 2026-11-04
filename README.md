@@ -40,7 +40,7 @@
 1. [Решение и ограничения](marketplace-product-analytics/reports/decision.md) — эффект, доверительный интервал и ограничение по жалобам.
 2. [Выполненный ноутбук](marketplace-product-analytics/notebooks/analysis.ipynb) — расчёты и графики.
 3. [SQL-витрина](marketplace-product-analytics/sql/user_mart.sql) — CTE, JOIN, оконная функция, защита знаменателя.
-4. [Дашборд](marketplace-product-analytics/reports/dashboard.html) — скачать и открыть в браузере; фильтры по устройству и категории.
+4. [Открыть дашборд](https://tsorievnv.github.io/marketplace-product-analytics/) — интерактивные метрики и воронка с фильтрами по устройству и категории.
 5. [План эксперимента](marketplace-product-analytics/experiment_plan.json) и [контракт событий](marketplace-product-analytics/docs/data_contract.md).
 
 ## Воспроизведение
