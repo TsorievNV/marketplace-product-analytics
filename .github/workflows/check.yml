@@ -1,0 +1,19 @@
+name: Проверка и воспроизведение анализа
+on: [push, pull_request]
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Загрузка исходного кода
+        uses: actions/checkout@v4
+      - name: Подготовка Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Установка зависимостей
+        run: pip install -r requirements-lock.txt
+      - name: Выполнение тестов
+        run: python -m pytest -q
+      - name: Воспроизведение анализа
+        run: python -m src.pipeline

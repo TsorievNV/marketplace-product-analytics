@@ -1,0 +1,10 @@
+{
+  "raw_rows": 58517,
+  "duplicate_rows": 1426,
+  "unknown_user_rows": 15,
+  "invalid_timestamp_rows": 15,
+  "missing_listing_rows": 15,
+  "quarantined_rows": 45,
+  "clean_rows": 57046,
+  "note": "Строка может нарушать несколько правил. Потери неотправленных событий здесь не проверяются."
+}
