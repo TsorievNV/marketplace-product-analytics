@@ -41,7 +41,7 @@
 2. [Выполненный ноутбук](marketplace-product-analytics/notebooks/analysis.ipynb) — расчёты и графики.
 3. [SQL-витрина](marketplace-product-analytics/sql/user_mart.sql) — CTE, JOIN, оконная функция, защита знаменателя.
 4. [Открыть дашборд](https://tsorievnv.github.io/marketplace-product-analytics/) — интерактивные метрики и воронка с фильтрами по устройству и категории.
-5. [План эксперимента](marketplace-product-analytics/experiment_plan.json) и [контракт событий](marketplace-product-analytics/docs/data_contract.md).
+5. [Контракт событий](marketplace-product-analytics/docs/data_contract.md) — структура данных и определения метрик.
 
 ## Воспроизведение
 
